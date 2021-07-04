@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace Simple.Ordering.Dal.Migrations
+namespace Simple.Ordering.Data.Migrations
 {
     public partial class Initial : Migration
     {

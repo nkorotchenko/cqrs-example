@@ -3,9 +3,9 @@ using System;
 using System.Threading;
 using System.Threading.Tasks;
 using Mapster;
-using Simple.Ordering.Dal;
+using Simple.Ordering.Data;
 
-namespace Simple.Ordering.Application.Order.Commands.CreateOrder
+namespace Simple.Ordering.Features.Order.Commands.CreateOrder
 {
     public class CreateOrderCommandHandler : IRequestHandler<CreateOrderCommand, Guid>
     {
@@ -18,7 +18,7 @@ namespace Simple.Ordering.Application.Order.Commands.CreateOrder
         
         public async Task<Guid> Handle(CreateOrderCommand request, CancellationToken cancellationToken)
         {
-            var entity = request.Adapt<Dal.Entities.Order>();
+            var entity = request.Adapt<Domain.Order>();
             
             await _dbContext.Orders.AddAsync(entity, cancellationToken);
             await _dbContext.SaveChangesAsync(cancellationToken);

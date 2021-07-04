@@ -5,7 +5,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
-namespace Simple.Ordering.Dal.Extensions
+namespace Simple.Ordering.Data.Extensions
 {
     public static class StringExtensions
     {

@@ -1,12 +1,13 @@
-﻿using System;
+﻿using MediatR;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Simple.Ordering.Dal.Entities
+namespace Simple.Ordering.Features.Order.Commands.CreateOrder
 {
-    public class Order : Entity
+    public class CreateOrderCommand : IRequest<Guid>
     {
         public string Name { get; set; }
 

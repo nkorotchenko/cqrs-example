@@ -10,7 +10,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\dal\Simple.Ordering.Dal.csproj" />
+    <ProjectReference Include="..\data\Simple.Ordering.Data.csproj" />
   </ItemGroup>
 
 </Project>

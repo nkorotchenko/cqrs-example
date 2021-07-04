@@ -2,18 +2,16 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
-using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
-using Simple.Ordering.Dal;
+using Simple.Ordering.Data;
 
-namespace Simple.Ordering.Dal.Migrations
+namespace Simple.Ordering.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20210704103619_Initial")]
-    partial class Initial
+    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
     {
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+        protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -21,7 +19,7 @@ namespace Simple.Ordering.Dal.Migrations
                 .HasAnnotation("ProductVersion", "5.0.7")
                 .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
 
-            modelBuilder.Entity("Simple.Ordering.Dal.Entities.Order", b =>
+            modelBuilder.Entity("Simple.Ordering.Data.Entities.Order", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()

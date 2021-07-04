@@ -1,8 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Simple.Ordering.Dal.Entities;
-using Simple.Ordering.Dal.Extensions;
+using Simple.Ordering.Data.Extensions;
+using Simple.Ordering.Domain;
 
-namespace Simple.Ordering.Dal
+namespace Simple.Ordering.Data
 {
     public class ApplicationDbContext : DbContext
     {

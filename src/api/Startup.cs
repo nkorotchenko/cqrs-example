@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
@@ -15,7 +16,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
-using Simple.Ordering.Dal;
+using Simple.Ordering.Data;
 
 namespace Simple.Ordering.Api
 {
@@ -32,11 +33,11 @@ namespace Simple.Ordering.Api
         public void ConfigureServices(IServiceCollection services)
         {
 
-            var application = AppDomain.CurrentDomain.Load("Simple.Ordering.Application");
+            var application = AppDomain.CurrentDomain.Load("Simple.Ordering.Features");
             services.AddMediatR(application);
             services.AddControllers();
             
-            TypeAdapterConfig.GlobalSettings.Scan(AppDomain.CurrentDomain.Load("Simple.Ordering.Application"));
+            TypeAdapterConfig.GlobalSettings.Scan(AppDomain.CurrentDomain.Load("Simple.Ordering.Features"));
             
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseNpgsql(
@@ -46,6 +47,11 @@ namespace Simple.Ordering.Api
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Simple.Ordering.Api", Version = "v1" });
+
+                // Set the comments path for the Swagger JSON and UI.
+                var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+                var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+                c.IncludeXmlComments(xmlPath);
             });
         }
 

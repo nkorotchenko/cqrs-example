@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Simple.Ordering.Dal.Extensions
+namespace Simple.Ordering.Data.Extensions
 {
     public static class ModelBuilderExtensions
     {

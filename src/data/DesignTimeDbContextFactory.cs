@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Simple.Ordering.Dal
+namespace Simple.Ordering.Data
 {
     public class DesignTimeDbContextFactory : IDesignTimeDbContextFactory<ApplicationDbContext>
     {
