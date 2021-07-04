@@ -8,7 +8,7 @@ namespace Simple.Ordering.Application.Order
     {
         public void Register(TypeAdapterConfig config)
         {
-            config.ForType<AddOrderCommand, Dal.Entities.Order>()
+            config.ForType<CreateOrderCommand, Dal.Entities.Order>()
                 .Map(x => x.Id, x => Guid.NewGuid());
         }
     }

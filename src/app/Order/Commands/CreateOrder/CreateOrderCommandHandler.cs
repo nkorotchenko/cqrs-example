@@ -7,16 +7,16 @@ using Simple.Ordering.Dal;
 
 namespace Simple.Ordering.Application.Order.Commands.CreateOrder
 {
-    public class AddOrderCommandHandler : IRequestHandler<AddOrderCommand, Guid>
+    public class CreateOrderCommandHandler : IRequestHandler<CreateOrderCommand, Guid>
     {
         private readonly ApplicationDbContext _dbContext;
 
-        public AddOrderCommandHandler(ApplicationDbContext dbContext)
+        public CreateOrderCommandHandler(ApplicationDbContext dbContext)
         {
             _dbContext = dbContext;
         }
         
-        public async Task<Guid> Handle(AddOrderCommand request, CancellationToken cancellationToken)
+        public async Task<Guid> Handle(CreateOrderCommand request, CancellationToken cancellationToken)
         {
             var entity = request.Adapt<Dal.Entities.Order>();
             

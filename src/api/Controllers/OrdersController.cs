@@ -26,7 +26,7 @@ namespace Simple.Ordering.Api.Controllers
         [HttpPost]
         public async Task<IActionResult> CreateOrder([FromBody] OrderVm model, CancellationToken token)
         {
-            var command = model.Adapt<AddOrderCommand>();
+            var command = model.Adapt<CreateOrderCommand>();
             return Ok(await _mediator.Send(command, token));
         }
     }

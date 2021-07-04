@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Simple.Ordering.Application.Order.Commands.CreateOrder
 {
-    public class AddOrderCommand : IRequest<Guid>
+    public class CreateOrderCommand : IRequest<Guid>
     {
         public string Name { get; set; }
 
