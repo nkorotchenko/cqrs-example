@@ -7,7 +7,7 @@ using Mapster;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using Simple.Ordering.Api.ViewModels.Order;
+using Simple.Ordering.Api.Models.Order;
 using Simple.Ordering.Features.Order.Commands.CreateOrder;
 using Simple.Ordering.Features.Order.Queries.GetOrderById;
 
@@ -31,7 +31,7 @@ namespace Simple.Ordering.Api.Controllers
         /// <param name="token"></param>
         /// <returns></returns>
         [HttpPost]
-        public async Task<IActionResult> CreateOrder([FromBody] OrderVm model, CancellationToken token)
+        public async Task<IActionResult> CreateOrder([FromBody] CreateOrderRequest model, CancellationToken token)
         {
             var command = model.Adapt<CreateOrderCommand>();
             return Ok(await _mediator.Send(command, token));
