@@ -7,5 +7,10 @@ using System.Threading.Tasks;
 
 namespace Simple.Ordering.Features.Order.Commands.CreateOrder
 {
-    public record CreateOrderCommand(string Name, int Number) : IRequest<Guid>;
+    public class CreateOrderCommand : IRequest<Guid>
+    {
+        public string Name { get; set; }
+
+        public int Number { get; set; }
+    }
 }

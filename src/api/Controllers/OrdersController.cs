@@ -27,13 +27,13 @@ namespace Simple.Ordering.Api.Controllers
         /// <summary>
         /// Создание заказа
         /// </summary>
-        /// <param name="model"></param>
+        /// <param name="request"></param>
         /// <param name="token"></param>
         /// <returns></returns>
         [HttpPost]
-        public async Task<IActionResult> CreateOrder([FromBody] CreateOrderRequest model, CancellationToken token)
+        public async Task<IActionResult> CreateOrder([FromBody] CreateOrderRequest request, CancellationToken token)
         {
-            var command = model.Adapt<CreateOrderCommand>();
+            var command = request.Adapt<CreateOrderCommand>();
             return Ok(await _mediator.Send(command, token));
         }
 
@@ -46,7 +46,7 @@ namespace Simple.Ordering.Api.Controllers
         [HttpGet("{orderId}")]
         public async Task<IActionResult> CreateOrder([FromRoute] Guid orderId, CancellationToken token)
         {
-            return Ok(await _mediator.Send(new GetOrderByIdQuery(orderId), token));
+            return Ok(await _mediator.Send(new GetOrderByIdQuery { OrderId = orderId }, token));
         }
     }
 }
